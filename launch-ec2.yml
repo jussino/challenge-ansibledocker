@@ -1,0 +1,17 @@
+- name: ec2 launcher
+  hosts: localhost
+  connection: local
+  tasks:
+  - name: launching ec2
+    ec2:
+      instance_type: t2.micro
+      key_name: ambientia
+      image: ami-000e7ce4dd68e7a11
+      region: us-east-2
+      group: Ambientia
+      count: 1
+      vpc_subnet_id: subnet-cb873ba0
+      wait: yes
+      assign_public_ip: yes
+      instance_tags:
+              Name: Dockerhost v2

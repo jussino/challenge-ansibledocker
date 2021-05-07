@@ -1,0 +1,44 @@
+- hosts: targets
+  vars:
+          - dockerfile: "Dockerfile"
+          - jar_file: "challenge-api-0.1.0.jar"
+          - cert_file: "tomcat.p12"
+          - docker_container_name: "challengeapi"
+          - host_port: "443"
+          - container_port: "8443"
+  tasks:
+          - name: "Copy Dockerfile"
+            copy:
+                    src: "{{dockerfile}}"
+                    dest: "/home/centos"
+          - name: "Copy jar"
+            copy:
+                    src: "{{jar_file}}"
+                    dest: "/home/centos"
+
+          - name: "Copy cert"
+            copy:
+                    src: "{{cert_file}}"
+                    dest: "/home/centos"
+
+          
+          - name: "Build docker image"
+            docker_image:
+                    name: "{{docker_container_name}}"
+                    build:
+                            path: "/home/centos"
+                    source: build
+                    state: present
+            become: yes
+
+          - name: "Start challengeapi container"
+            docker_container:
+                    name: "{{docker_container_name}}"
+                    image: "{{docker_container_name}}"
+                    state: started
+                    #          ports: "{{host_port:container_port}}"
+                    ports: "443:8443"
+                    restart_policy: always
+            become: yes
+
+
