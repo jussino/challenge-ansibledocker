@@ -1,0 +1,11 @@
+#dyn inventory
+---
+plugin: aws_ec2
+#aws_profile: default
+regions:
+  - us-east-2
+filters:
+   instance-state-name : running
+   tag:Environment:
+      - dev
+
