@@ -16,6 +16,3 @@
               Name: Dockerhost v2
               Environment: dev
       wait: yes
-  - name: Wait for instance to become reachable
-    wait_for_connection:
-            timeout: 900
