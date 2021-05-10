@@ -1,9 +1,6 @@
 [targets]
 ec2-18-220-159-239.us-east-2.compute.amazonaws.com
 ec2-18-221-189-220.us-east-2.compute.amazonaws.com
-ec2-3-129-216-97.us-east-2.compute.amazonaws.com
-ec2-3-14-245-54.us-east-2.compute.amazonaws.com
-ec2-18-220-159-239.us-east-2.compute.amazonaws.com
-ec2-18-221-189-220.us-east-2.compute.amazonaws.com
+ec2-18-222-20-68.us-east-2.compute.amazonaws.com
 ec2-3-129-216-97.us-east-2.compute.amazonaws.com
 ec2-3-14-245-54.us-east-2.compute.amazonaws.com
