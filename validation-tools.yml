@@ -1,0 +1,45 @@
+- name: Get files
+  # gather_facts: No
+  hosts: targets
+  become: yes
+
+  tasks:
+    - name: Get RPM files JussiHa
+      get_url:
+        url: "https://staff.ambientia.fi/challenge-auditors/amb-user-jussiha-1.0-4.noarch.rpm"
+        dest: "./amb-user-jussiha-1.0-4.noarch.rpm"
+        validate_certs: False
+    - name: Get RPM files PekkaHo
+      get_url:
+        url: "https://staff.ambientia.fi/challenge-auditors/amb-user-pekkaho-1.0-4.noarch.rpm"
+        dest: "./amb-user-pekkaho-1.0-4.noarch.rpm"
+        validate_certs: False
+    - name: Get RPM files Teroj
+      get_url:
+        url: "https://staff.ambientia.fi/challenge-auditors/amb-user-teroj-1.0-9.noarch.rpm"
+        dest: "./amb-user-teroj-1.0-9.noarch.rpm"
+        validate_certs: False
+    - name: Get RPM files VeikkoS
+      get_url:
+        url: "https://staff.ambientia.fi/challenge-auditors/amb-user-veikkos-1.0-6.noarch.rpm"
+        dest: "./amb-user-veikkos-1.0-6.noarch.rpm"
+        validate_certs: False
+
+    - name: Yum install
+      yum:
+              name: ./amb-user-jussiha-1.0-4.noarch.rpm
+              state: latest
+              name: ./amb-user-pekkaho-1.0-4.noarch.rpm
+              state: latest
+              name: ./amb-user-teroj-1.0-9.noarch.rpm
+              state: latest
+              name: ./amb-user-veikkos-1.0-6.noarch.rpm
+              state: latest
+
+
+              #    - name: Install RPM 
+              #      shell:
+              #              cmd: rpm -i ./amb-user-jussiha-1.0-4.noarch.rpm
+              #              cmd: rpm -i ./amb-user-pekkaho-1.0-4.noarch.rpm
+              #              cmd: rpm -i ./amb-user-teroj-1.0-9.noarch.rpm
+              #              cmd: rpm -i ./amb-user-veikkos-1.0-6.noarch.rpm
