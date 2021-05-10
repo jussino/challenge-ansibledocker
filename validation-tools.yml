@@ -25,21 +25,25 @@
         dest: "./amb-user-veikkos-1.0-6.noarch.rpm"
         validate_certs: False
 
-    - name: Yum install
+    - name: Yum install JussiH
       yum:
               name: ./amb-user-jussiha-1.0-4.noarch.rpm
+              disable_gpg_check: True
               state: latest
+    - name: Yum install Pekkaho
+      yum:
               name: ./amb-user-pekkaho-1.0-4.noarch.rpm
+              disable_gpg_check: True
               state: latest
+    - name: Yum install TeroJ
+      yum:
               name: ./amb-user-teroj-1.0-9.noarch.rpm
+              disable_gpg_check: True
               state: latest
+    - name: Yum install VeikkoS
+      yum:
               name: ./amb-user-veikkos-1.0-6.noarch.rpm
+              disable_gpg_check: True
               state: latest
 
 
-              #    - name: Install RPM 
-              #      shell:
-              #              cmd: rpm -i ./amb-user-jussiha-1.0-4.noarch.rpm
-              #              cmd: rpm -i ./amb-user-pekkaho-1.0-4.noarch.rpm
-              #              cmd: rpm -i ./amb-user-teroj-1.0-9.noarch.rpm
-              #              cmd: rpm -i ./amb-user-veikkos-1.0-6.noarch.rpm

@@ -11,8 +11,11 @@
       group: Ambientia
       count: 1
       vpc_subnet_id: subnet-cb873ba0
-      wait: yes
       assign_public_ip: yes
       instance_tags:
               Name: Dockerhost v2
               Environment: dev
+      wait: yes
+  - name: Wait for instance to become reachable
+    wait_for_connection:
+            timeout: 900
